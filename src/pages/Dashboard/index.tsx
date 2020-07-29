@@ -27,11 +27,13 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     async function loadFoods(): Promise<void> {
-      // TODO LOAD FOODS
+      api.get('/foods').then(response => {
+        setFoods(response.data);
+      });
     }
 
     loadFoods();
-  }, []);
+  }, [foods]);
 
   async function handleAddFood(
     food: Omit<IFoodPlate, 'id' | 'available'>,
