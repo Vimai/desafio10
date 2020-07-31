@@ -53,6 +53,8 @@ const Dashboard: React.FC = () => {
 
   async function handleDeleteFood(id: number): Promise<void> {
     // TODO DELETE A FOOD PLATE FROM THE API
+    await api.delete(`/foods/${id}`);
+    setFoods(foods.filter(food => food.id !== id));
   }
 
   function toggleModal(): void {
@@ -65,6 +67,8 @@ const Dashboard: React.FC = () => {
 
   function handleEditFood(food: IFoodPlate): void {
     // TODO SET THE CURRENT EDITING FOOD ID IN THE STATE
+    setEditingFood(food);
+    toggleEditModal();
   }
 
   return (
