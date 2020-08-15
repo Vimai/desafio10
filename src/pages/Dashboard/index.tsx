@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
     }
 
     loadFoods();
-  }, [foods]);
+  }, []);
 
   async function handleAddFood(
     food: Omit<IFoodPlate, 'id' | 'available'>,
